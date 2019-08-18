@@ -12,9 +12,9 @@ const SingleItem = ( props ) => {
             <div className="card-body">
                 <h5 className="card-title">{ foodArr.label }</h5>
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item">Cras justo odio</li>
-                    <li className="list-group-item">Dapibus ac facilisis in</li>
-                    <li className="list-group-item">Vestibulum at eros</li>
+                    <li className="list-group-item"><strong>Calories</strong> {foodArr.calories}</li>
+                    <li className="list-group-item" ><strong>Description</strong> {foodArr.dietLabels.join(', ')}</li>
+                    <li className="list-group-item"><strong style={{color: '#ff6817'}}>Allergies</strong>: {foodArr.cautions}</li>
                  </ul>
             </div>
         </div>
