@@ -16,6 +16,11 @@ const reducer = (state, action) => {
                 ...state,
                 food: action.payload
             }
+        case 'CHANGE_PROTEIN':
+            return {
+                ...state,
+                protein: action.payload
+            }
             default:
                 return state
     }
@@ -24,11 +29,12 @@ const reducer = (state, action) => {
 export class Provider extends Component {
     state = {
         food: [],
+        protein: 'pork',
         dispatch: action => this.setState(state => reducer(state, action))
     }
 
     componentDidMount(){
-        axios.get(`${callLink}q=beef&app_id=${appId}&app_key=${apiKey}&from=0&to=20&calories=591-722&health=alcohol-free`)
+        axios.get(`${callLink}q=${this.state.protein}&app_id=${appId}&app_key=${apiKey}&from=0&to=20&calories=591-722&health=alcohol-free`)
         .then(res => {            
             console.log(res.data.hits)
             this.setState({
