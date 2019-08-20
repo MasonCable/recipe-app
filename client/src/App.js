@@ -8,7 +8,7 @@ function App() {
   return (
     <Provider>
       <Router>
-        <React.Fragment className='App'>
+        <React.Fragment >
           <Switch>
             <Route exact path = '/' component={ Homepage } />
           </Switch>
