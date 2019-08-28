@@ -2,7 +2,7 @@ import React from 'react'
 import Homepage from './components/Homepage'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from './context'
-// const apiKey = '028a4610ed97afff5701fd00475eb28'
+import Hometop from './components/Hometop'
 
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
       <Router>
         <React.Fragment >
           <Switch>
-            <Route exact path = '/' component={ Homepage } />
+            {/* <Route exact path = '/' component={ Homepage } /> */}
+            <Route exact path = '/' component={Hometop} />
           </Switch>
         </React.Fragment>
       </Router>

@@ -32,3 +32,23 @@
     transform: rotate(360deg);
   }
 } */
+
+
+::placeholder { /* Firefox, Chrome, Opera */ 
+  color: #fff;
+  font-size: 1.3em;
+} 
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+  color: #fff;
+  font-size: 1.3em; 
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */ 
+  color: #fff;
+  font-size: 1.3em; 
+} 
+
+input:focus{
+  outline: none;
+}

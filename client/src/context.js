@@ -35,14 +35,14 @@ export class Provider extends Component {
     state = {
         food: [],
         protein: '',
-        amount: 10,
+        amount: 3,
         dispatch: action => this.setState(state => reducer(state, action))
     }
 
     componentDidMount(){
         axios.get(`${callLink}q=${this.state.protein}&app_id=${appId}&app_key=${apiKey}&from=0&to=${this.state.amount}&calories=591-722&health=alcohol-free`)
         .then(res => {            
-            console.log(res.data.hits)
+            
             this.setState({
                 food: res.data.hits
             })
