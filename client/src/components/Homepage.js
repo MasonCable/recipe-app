@@ -5,6 +5,7 @@ import Spinner from '../assets/Spinner'
 import axios from 'axios'
 import Search from './Search'
 
+
  
 
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
@@ -35,6 +36,7 @@ class Homepage extends Component {
                                         <SingleItem foodArr={item.recipe}  key={item.recipe.url} />
                                     ))}                                   
                                 </div>
+                                
                             </React.Fragment>
                         )
                         }
