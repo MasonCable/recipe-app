@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Spinner from '../assets/Spinner'
 import axios from 'axios'
+
 
 
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
@@ -24,16 +26,20 @@ class Recipes extends Component{
     }
   render(){
     const { recipes } = this.state
-        return (
-        <div className="container">
-            {/* <h1>Hello world this is the {this.props.match.params.id} page</h1> */}
+        if(recipes.length === 0){
+           return (<Spinner />) 
+        }else {
+            return (
+                <div className="container">
+                    {/* <h1>Hello world this is the {this.props.match.params.id} page</h1> */}
 
-            {recipes.map(item => (
-                <h1 key={item.recipe.label}> {item.recipe.label}</h1>
-            ))}
-            <Link to='/'>Go Back</Link>
-        </div>
-    )
+                    {recipes.map(item => (
+                        <h1 key={item.recipe.label}> {item.recipe.label}</h1>
+                    ))}
+                    <Link to='/'>Go Back</Link>
+                </div>
+            )   
+        }
   }
 }
 
