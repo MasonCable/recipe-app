@@ -5,7 +5,7 @@ const Threeitems = (props) => {
 
     return (
         <div className="card">
-            <img src={foodArr.image} alt=""/>
+            <img src={foodArr.image} style={{width: 5 + 'em'}}/>
         </div>
     )
 }

@@ -30,14 +30,28 @@ class Recipes extends Component{
            return (<Spinner />) 
         }else {
             return (
-                <div className="container">
+                <React.Fragment>
+                <div className="container d-flex justify-content-around flex-wrap">
                     {/* <h1>Hello world this is the {this.props.match.params.id} page</h1> */}
 
                     {recipes.map(item => (
-                        <h1 key={item.recipe.label}> {item.recipe.label}</h1>
+                        <div className="car d-flex m-5" key={item.recipe.label} style={{width: 25 + 'em'}}>
+                            <img src={item.recipe.image} style={{ width: 100 + '%' }}/>
+                            <div className="card-body">
+                                <h5 className="card-title">
+                                    {item.recipe.label}
+                                </h5>
+                                <ul className="list-group list-group-flush">
+                                    <div className="list-group-item"><strong>Calories</strong>: {Math.round(item.recipe.calories)}</div>
+                                    <div className="list-group-item"><strong>Description</strong>: {item.recipe.dietLabels.join(', ')}</div>
+                                </ul>
+                            </div>
+                        </div>
                     ))}
-                    <Link to='/'>Go Back</Link>
+                    
                 </div>
+                <Link to='/'>Go Back</Link>
+                </React.Fragment>
             )   
         }
   }
