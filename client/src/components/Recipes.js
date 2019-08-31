@@ -18,7 +18,6 @@ class Recipes extends Component{
         axios.get(`${callLink}q=${this.props.match.params.id}&app_id=${appId}&app_key=${apiKey}&from=0&to=${this.state.amount}&calories=591-722&health=alcohol-free`)
             .then(res => {
                 console.log(res.data.hits)
-
                 this.setState({
                     recipes: res.data.hits
                 })
@@ -31,6 +30,7 @@ class Recipes extends Component{
         }else {
             return (
                 <React.Fragment>
+                <Link to='/'>Go Back</Link>
                 <div className="container d-flex justify-content-around flex-wrap">
                     {/* <h1>Hello world this is the {this.props.match.params.id} page</h1> */}
 
@@ -50,7 +50,7 @@ class Recipes extends Component{
                     ))}
                     
                 </div>
-                <Link to='/'>Go Back</Link>
+                
                 </React.Fragment>
             )   
         }

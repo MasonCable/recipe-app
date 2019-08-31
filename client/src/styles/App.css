@@ -32,7 +32,15 @@
     transform: rotate(360deg);
   }
 } */
-
+.hoverState {
+  border-radius: 50%;
+  border: 1px solid #2323 !important;
+  padding: 2.3em;
+  
+}
+.hoverState:hover {
+  transform: scale(1.3);
+}
 
 ::placeholder { /* Firefox, Chrome, Opera */ 
   color: #fff;

@@ -43,7 +43,7 @@ class Proteins extends Component {
 
     
 
-    handleClick
+    
 
     render(){        
         return (
@@ -53,7 +53,7 @@ class Proteins extends Component {
                         <div className="container mt-4 d-flex flex-wrap justify-content-around">                            
                             {this.state.protein.map(item => (
                                 <Link to={`/recipes/${item.name}`} key={item.name}>
-                                    <div onClick={this.handleClick} className='card '   style={cardStyle}>
+                                    <div className='card hoverState' style={cardStyle} >
                                         
                                         <img src={item.image}  
                                             style={{width: 100 + '%', height: 10 + 'em'}}
@@ -73,4 +73,4 @@ class Proteins extends Component {
 
 export default Proteins
 
-const cardStyle = {width: 15 + 'em', textAlign: 'center', margin: 2 + 'em'}
+const cardStyle = {width: 15 + 'em', textAlign: 'center', margin: 2 + 'em', border: 'none'}

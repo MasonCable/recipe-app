@@ -4,8 +4,11 @@ const Threeitems = (props) => {
     const { foodArr } = props
 
     return (
-        <div className="card">
-            <img src={foodArr.image} style={{width: 5 + 'em'}}/>
+        <div className="container d-flex justify-content-around ">
+            <div className="flex-wrap" style={{textAlign: 'center'}}>
+                <img src={foodArr.image} style={{width: 10 + 'em'}}/>
+                <h5 style={{color: '#fff'}}>{foodArr.label}</h5>
+            </div>
         </div>
     )
 }

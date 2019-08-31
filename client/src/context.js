@@ -11,20 +11,10 @@ const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/sea
 
 const reducer = (state, action) => {
     switch(action.type){
-        case 'SEARCH_CHANGE':
+        case 'CHANGE_SEARCH':
             return {
                 ...state,
                 food: action.payload
-            }
-        case 'CHANGE_PROTEIN':
-            return {
-                ...state,
-                protein: action.payload
-            }
-        case 'CHANGE_AMOUNT':
-            return {
-                ...state,
-                amount: action.payload
             }
             default:
                 return state
@@ -41,8 +31,7 @@ export class Provider extends Component {
 
     componentDidMount(){
         axios.get(`${callLink}q=${this.state.protein}&app_id=${appId}&app_key=${apiKey}&from=0&to=${this.state.amount}&calories=591-722&health=alcohol-free`)
-        .then(res => {            
-            
+        .then(res => {                        
             this.setState({
                 food: res.data.hits
             })
