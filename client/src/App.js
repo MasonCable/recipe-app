@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from './context'
 import Hometop from './components/Hometop'
 import Recipes from './components/Recipes'
+import Search from './components/Search'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Switch>            
             <Route exact path = '/' component={Hometop} />
             <Route exact path = '/recipes/:id' component={Recipes} />
+            <Route exact path = '/search/:id' component={Search} />
           </Switch>
         </React.Fragment>
       </Router>

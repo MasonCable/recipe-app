@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Consumer } from '../context'
+import { Redirect } from 'react-router-dom'
 
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
 const appId = '2ec14519'
@@ -19,14 +20,15 @@ class Searchbar extends Component {
 
         handleSubmit = (dispatch, e) => {
             e.preventDefault()
-            axios.get(`${callLink}q=${this.state.protein}&app_id=${appId}&app_key=${apiKey}&from=0&to=10&calories=591-722&health=alcohol-free`)
-                .then(res => {
-                    dispatch({
-                        type: 'CHANGE_SEARCH',
-                        payload: res.data.hits
-                    })
-                }).catch(err => console.log(err))
+            // axios.get(`${callLink}q=${this.state.protein}&app_id=${appId}&app_key=${apiKey}&from=0&to=10&calories=591-722&health=alcohol-free`)
+            //     .then(res => {
+            //         dispatch({
+            //             type: 'CHANGE_SEARCH',
+            //             payload: res.data.hits
+            //         })
+            //     }).catch(err => console.log(err))
                 
+                return <Redirect to={`/search/${this.state.foodVal}`} />
         }
     render(){
         return (
@@ -36,7 +38,7 @@ class Searchbar extends Component {
 
                 return (
                     <div className=" p-3">
-                        <form className="d-flex justify-content-center" onSubmit={this.handleSubmit.bind(this, dispatch)}>
+                        <form className="d-flex justify-content-center" onSubmit={this.handleSubmit.bind(this)}>
                             <input placeholder='Search By Keyword...' 
                                 type="text" 
                                 value={this.state.foodVal}
@@ -45,7 +47,7 @@ class Searchbar extends Component {
                                 onChange={this.handleChange.bind(this)}
                                 />
                                 <button className="btn btn-primary " type="submit">
-                                    Search
+                                    <i className="fas fa-search"></i>
                                 </button>
                         </form>
                     </div>
