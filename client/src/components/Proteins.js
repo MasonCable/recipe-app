@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from 'react'
 import { Consumer } from '../context'
 import { Link } from 'react-router-dom'
 
+
 class Proteins extends Component {
     state = {
         protein: [
@@ -46,27 +47,21 @@ class Proteins extends Component {
     
 
     render(){        
-        return (
-            <Consumer>
-                {value => {
-                    return(
-                        <div className="container mt-4 d-flex flex-wrap justify-content-around">                            
-                            {this.state.protein.map(item => (
-                                <Link to={`/recipes/${item.name}`} key={item.name}>
-                                    <div className='card hoverState' style={cardStyle} >
-                                        
-                                        <img src={item.image}  
-                                            style={{width: 100 + '%', height: 10 + 'em'}}
-                                        />
-                                            <h2 style={{color: 'black'}}>{item.name}</h2>
-                                        
-                                    </div>
-                                </Link>
-                            ))}
+        return (                
+            <div className="container mt-4 d-flex flex-wrap justify-content-around">                            
+                {this.state.protein.map(item => (
+                    <Link to={`/recipes/${item.name}`} key={item.name}>
+                        <div className='card hoverState' style={cardStyle} >
+                            
+                            <img src={item.image}  
+                                style={{width: 100 + '%', height: 10 + 'em'}}
+                            />
+                                <h2 style={{color: 'black'}}>{item.name}</h2>
+                            
                         </div>
-                    )
-                }}
-            </Consumer>
+                    </Link>
+                ))}
+            </div>
         )
     }
 }

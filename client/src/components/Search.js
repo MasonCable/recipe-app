@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import Spinner from '../assets/Spinner'
 
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
 const appId = '2ec14519'
@@ -24,14 +24,20 @@ class Search extends Component {
             })
     }
     render(){
-        return (
-            <div>
-                <Link to='/'>
-                    <button className="btn-primart btn">Back</button>
-                </Link>
-                <h1>{this.props.match.params.id}</h1>
-            </div>
-        )
+        if (this.state.foods.length <= 0) {
+            return (
+                <Spinner />
+            )
+        } else {
+            return (
+                <div>
+                    <Link to='/'>
+                        <button className="btn-primart btn">Back</button>
+                    </Link>
+                    <h1>{this.props.match.params.id}</h1>
+                </div>
+            )
+        }
     }
 }
 

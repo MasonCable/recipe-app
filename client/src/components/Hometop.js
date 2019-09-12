@@ -36,6 +36,7 @@ class Hometop extends Component {
                                 ))}
                             </div>
                         </div>
+                        {/*This will be the are where the menu is -> on mobile this will be a dropdown*/}
                 </div>
                 <Proteins />
                     </React.Fragment>
