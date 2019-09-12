@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Spinner from '../assets/Spinner'
+import Searchfoods from './Searchfoods'
 
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
 const appId = '2ec14519'
@@ -35,6 +36,11 @@ class Search extends Component {
                         <button className="btn-primart btn">Back</button>
                     </Link>
                     <h1>{this.props.match.params.id}</h1>
+                    <div className="m-3">
+                        {this.state.foods.map(item => (
+                            <Searchfoods key={item.recipe.shareAs} title={item.recipe.label} />
+                        ))}
+                    </div>
                 </div>
             )
         }
