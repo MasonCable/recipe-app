@@ -35,9 +35,15 @@
 .hoverState {
   border-radius: 50%;
   border: 1px solid #2323 !important;
-  padding: 2.3em;
-  
+  padding: 2.3em; 
 }
+
+.hoverBtn:hover {
+  transform: scale(1.3);
+  color: #fff;
+  border-top: 2px solid #fff;
+}
+
 .hoverState:hover {
   transform: scale(1.3);
 }

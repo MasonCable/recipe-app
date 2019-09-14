@@ -17,7 +17,7 @@ class Search extends Component {
     componentDidMount() {
         axios.get(`${callLink}q=${this.props.match.params.id}&app_id=${appId}&app_key=${apiKey}&from=0&to=10&calories=591-722&health=alcohol-free`)
             .then(res => {
-                console.log(res.data.hits)            
+                // console.log(res.data.hits)            
                 this.setState({
                     foods: res.data.hits,
                     resultAmt: res.data.hits.length

@@ -21,7 +21,7 @@ class Searchbar extends Component {
         handleSubmit = (dispatch, e) => {
             e.preventDefault()
             
-                // return <Redirect to={`/search/${this.state.foodVal}`} />
+                return <Redirect to={`/search/${this.state.foodVal}`} />
         }
     render(){
         return (
@@ -39,8 +39,8 @@ class Searchbar extends Component {
                                 name='foodVal'
                                 onChange={this.handleChange.bind(this)}
                                 />
-                                <Link to={`/search/${this.state.foodVal}`} >
-                                    <button className="btn btn-primary " type="submit">
+                                <Link to={`/recipes/${this.state.foodVal}`} style={{marginLeft: -5 + 'em'}} >
+                                    <button className="btn border-top hoverBtn" type="submit" >                                        
                                         Search
                                     </button>
                                 </Link>
