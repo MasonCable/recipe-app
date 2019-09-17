@@ -9,7 +9,8 @@ const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/sea
 
 class Searchbar extends Component {
      state = {
-            foodVal: ''
+            foodVal: '',
+            btnVal: ''
         }
 
         handleChange = (e) => {        
@@ -20,8 +21,16 @@ class Searchbar extends Component {
 
         handleSubmit = (dispatch, e) => {
             e.preventDefault()
+
+            if (this.state.foodVal == '') {
+                alert('Fill not a valid string')
+            } else {
+                this.setState({
+                    btnVal: this.state.foodVal
+                })
+            }
             
-                return <Redirect to={`/search/${this.state.foodVal}`} />
+                // return <Redirect to={`/recipes/${this.state.foodVal}`} />
         }
     render(){
         return (
@@ -40,7 +49,7 @@ class Searchbar extends Component {
                                 onChange={this.handleChange.bind(this)}
                                 />
                                 <Link to={`/recipes/${this.state.foodVal}`} style={{marginLeft: -5 + 'em'}} >
-                                    <button className="btn border-top hoverBtn" type="submit" >                                        
+                                    <button className="btn border-top hoverBtn" type="submit" style={{color: '#fff'}} >                                        
                                         Search
                                     </button>
                                 </Link>
