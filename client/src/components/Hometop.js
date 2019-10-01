@@ -40,10 +40,11 @@ class Hometop extends Component {
                         {/*This will be the are where the menu is -> on mobile this will be a dropdown*/}
                         <div className="container d-flex justify-content-center">
                             <ul className="list-group list-group-horizontal-sm" >
-                                 <Link to='/' ><li className="list-group-item m-4 border-bottom" style={{backgroundColor: '#94011c', color: '#fff', cursor: 'pointer'}}>Home</li> </Link>
+                                 <Link to='/' ><li className="list-group-item m-4 border-bottom" style={{backgroundColor: '#94011c', color: '#fff', cursor: 'pointer', width: 10 + 'em', textAlign: 'center'}}>Home</li> </Link>
                                  {/* <li className="list-group-item m-4 border-bottom" style={{backgroundColor: '#94011c', color: '#fff', cursor: 'pointer'}}>Login/Register</li> */}
                                 {/* <li className="list-group-item m-4 border-bottom" style={{backgroundColor: '#94011c', color: '#fff', cursor: 'pointer'}}>Choose by region</li> */}
-                                 <Link to='/vegan/favorites'><li className="list-group-item m-4 border-bottom" style={{backgroundColor: '#94011c', color: '#fff', cursor: 'pointer'}}>Vegan Favorites</li></Link>
+                                    {/* Add these when the routes are built */}
+                                 <Link to='/vegan/favorites'><li className="list-group-item m-4 border-bottom" style={{backgroundColor: '#94011c', color: '#fff', cursor: 'pointer', width: 10 + 'em', textAlign: 'center'}}>Vegan Favorites</li></Link>
                             </ul>
                         </div>
                 </div>

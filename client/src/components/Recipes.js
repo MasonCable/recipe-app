@@ -32,8 +32,6 @@ class Recipes extends Component{
                 <React.Fragment>
                 <Link to='/'>Go Back</Link>
                 <div className="container d-flex justify-content-around flex-wrap">
-                    {/* <h1>Hello world this is the {this.props.match.params.id} page</h1> */}
-
                     {recipes.map(item => (
                         <div className="car d-flex m-5" key={item.recipe.label} style={{width: 25 + 'em'}}>
                             <img src={item.recipe.image} style={{ width: 100 + '%' }}/>
