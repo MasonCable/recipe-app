@@ -34,30 +34,22 @@ class Searchbar extends Component {
         }
     render(){
         return (
-           <Consumer>
-            {value => {
-                const { dispatch } = value
-
-                return (
-                    <div className=" p-3">
-                        <form className="d-flex justify-content-center" onSubmit={this.handleSubmit.bind(this)}>
-                            <input placeholder='Search By Keyword...' 
-                                type="text" 
-                                value={this.state.foodVal}
-                                style={styles}
-                                name='foodVal'
-                                onChange={this.handleChange.bind(this)}
-                                />
-                                <Link to={`/recipes/${this.state.foodVal}`} style={{marginLeft: -5 + 'em'}} >
-                                    <button className="btn border-top hoverBtn" type="submit" style={{color: '#fff'}} >                                        
-                                        Search
-                                    </button>
-                                </Link>
-                        </form>
-                    </div>
-                )
-            }}
-           </Consumer>
+            <div className=" p-3">
+                <form className="d-flex justify-content-center" onSubmit={this.handleSubmit.bind(this)}>
+                    <input placeholder='Search By Keyword...' 
+                        type="text" 
+                        value={this.state.foodVal}
+                        style={styles}
+                        name='foodVal'
+                        onChange={this.handleChange.bind(this)}
+                        />
+                        <Link to={`/recipes/${this.state.foodVal}`} style={{marginLeft: -5 + 'em'}} >
+                            <button className="btn border-top hoverBtn" type="submit" style={{color: '#fff'}} >                                        
+                                Search
+                            </button>
+                        </Link>
+                </form>
+            </div>
         )
     }
 }

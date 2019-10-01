@@ -7,22 +7,23 @@ import Recipes from './components/Recipes'
 import Search from './components/Search'
 import Vegan from './components/Vegan'
 import LoginRegister from './components/LoginRegister' 
+// Auth
+import { AuthProvider } from './Auth'
 
-function App() {
+const App = () => {
   return (
-    <Provider>
+    <AuthProvider>
       <Router>
         <React.Fragment >
           <Switch>            
             <Route exact path = '/' component={Hometop} />
-            <Route exact path = '/recipes/:id' component={Recipes} />
-            {/* <Route exact path = '/search/:id' component={Search} /> */}
+            <Route exact path = '/recipes/:id' component={Recipes} />            
             <Route exact path='/vegan/favorites' component={Vegan} />
             <Route exact path='/login' component={LoginRegister} />
           </Switch>
         </React.Fragment>
       </Router>
-    </Provider>
+    </AuthProvider>
   )
 }
 

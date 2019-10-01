@@ -5,8 +5,9 @@ class LoginRegister extends Component {
     render() {
         return (
             <React.Fragment>
-                <h1>Hello World</h1>
-                <h2>Lets Login</h2>
+                <div className="container">
+                    <h1>This page is under construction</h1>
+                </div>
                 <Link to='/' ><h3>Go back</h3></Link>
             </React.Fragment>
         )
