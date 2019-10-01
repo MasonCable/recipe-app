@@ -5,8 +5,8 @@ import { Provider } from './context'
 import Hometop from './components/Hometop'
 import Recipes from './components/Recipes'
 import Search from './components/Search'
-
 import Vegan from './components/Vegan'
+import LoginRegister from './components/LoginRegister' 
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
             <Route exact path = '/recipes/:id' component={Recipes} />
             {/* <Route exact path = '/search/:id' component={Search} /> */}
             <Route exact path='/vegan/favorites' component={Vegan} />
+            <Route exact path='/login' component={LoginRegister} />
           </Switch>
         </React.Fragment>
       </Router>
