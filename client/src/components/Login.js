@@ -5,7 +5,7 @@ import {app} from '../base'
 import { AuthContext } from '../Auth.js'
 import sha512 from 'js-sha512'
 
-const LoginRegister = ({history}) => {
+const Login = ({history}) => {
 
     const [ usrLink, setLink ] = useState( '' )
 
@@ -20,20 +20,12 @@ const LoginRegister = ({history}) => {
             
             try {
                 await 
-                    // console.log(sha512(email.value).toString())
-                        setLink(sha512(email.value).toString()) 
-                        app.auth().signInWithEmailAndPassword(email.value, password.value) 
-                            
-                            
-                        
-                        // app .auth().signInWithEmailAndPassword(email.value, password.value)
-                    
                 
+                setLink(sha512(email.value).toString()) 
+                app.auth().signInWithEmailAndPassword(email.value, password.value) 
                 history.push(`/app/${sha512(email.value).toString()}`)
             } catch (err) {
-            
-                
-                console.log(err)
+                alert(err)
             } 
 
             
@@ -42,15 +34,11 @@ const LoginRegister = ({history}) => {
         
     )
 
-    const { currentUser } = useContext(AuthContext)
-
-    if(currentUser && usrLink !== '') {
-        return <Redirect to={`/app/l${usrLink}`} />
-    }
+    
 
     return(
      
-        <div className="container">
+        <div className="container">        
             <div className="">
                 <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div className="card card-signin my-5">
@@ -69,6 +57,7 @@ const LoginRegister = ({history}) => {
                             <div className='mt-4'>
                                 <h5 style={{textAlign: 'center'}}>OR</h5>
                                 <Link to='/signup'><button className="btn btn-lg btn-warning btn-block text-uppercase" type="submit">Sign Up</button> </Link>
+                                <Link to='/'><button className="btn btn-dark btn-lg btn-block mt-3">Go Home</button></Link>
                             </div>
                         </div>
                     </div>
@@ -78,4 +67,4 @@ const LoginRegister = ({history}) => {
     )
 }
 
-export default withRouter(LoginRegister)
+export default withRouter(Login)

@@ -4,9 +4,13 @@ import axios from 'axios'
 import Threeitems from './Threeitems'
 import Proteins from './Proteins'
 import Searchbar from './Searchbar' 
+import { app } from '../base'
+
+// Make sure the following consts are moved to an .env file
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
 const appId = '2ec14519'
 const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?'
+
 
 
 class Hometop extends Component {
@@ -26,7 +30,7 @@ class Hometop extends Component {
             
     }
     render(){
-        return (
+           return (
             <React.Fragment>
                 <div className="header" style={{backgroundColor: '#94011c'}}>
                     <Searchbar />
@@ -42,19 +46,16 @@ class Hometop extends Component {
                             <ul className="list-group list-group-horizontal-sm" >
                                  <Link to='/' ><li className="list-group-item m-4 border-bottom" style={styles}>Home</li></Link>
                                  <Link to='/vegan/favorites'><li className="list-group-item m-4 border-bottom" style={styles}>Vegan Favorites</li></Link>
-                                 <Link to='/login'> <li className="list-group-item m-4 border-bottom" style={styles}>Login/Register</li></Link>
-                                {/* <li className="list-group-item m-4 border-bottom" style={styles}>Choose by region</li> */}
+                                 <Link to="/login"><li className="list-group-item m-4 border-bottom" style={styles}>Login/Register</li></Link>
                                     {/* Add these when the routes are built */}
                                  
                             </ul>
                         </div>
                 </div>
                 <Proteins />
-                    </React.Fragment>
-                
-            
-            
+            </React.Fragment>
         )
+       
     }
 }
 
