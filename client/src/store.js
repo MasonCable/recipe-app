@@ -1,12 +1,11 @@
-// Use combineReducers for when we have to handle multiple states
-// We can import
 import { createStore, combineReducers } from 'redux'
 
 const initialState = {
-    recipes: []
+    recipes: [],
+    userData: {}
 }
 
-export const testReducer = (state = initialState, action) => {
+const testReducer1 = (state = initialState, action) => {
     switch (action.type) {
             case 'BUILD_RECIPES' :
                 return {...state, recipes: action.payload}
@@ -15,6 +14,21 @@ export const testReducer = (state = initialState, action) => {
         }
 }
 
-const store = createStore(testReducer)
+const testReducer2 = (state = initialState, action) => {
+    switch (action.type) {
+            case 'GET_USER_DATA' :
+                return {...state, userData: action.payload}
+            default:
+                return state
+        }
+}
+
+
+const rootReducer = combineReducers({
+    testReducer1,
+    testReducer2
+})
+
+const store = createStore(rootReducer)
 
 export default store

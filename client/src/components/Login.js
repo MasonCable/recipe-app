@@ -23,7 +23,7 @@ const Login = ({history}) => {
              await 
               setLink(sha512(email.value).toString()) 
               app.auth().signInWithEmailAndPassword(email.value, password.value) 
-              history.push(`/app/${sha512(email.value).toString()}`)
+              history.push(`/app`)
             }
              catch (err) 
             {

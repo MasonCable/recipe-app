@@ -28,7 +28,7 @@ const App = () => {
             <Route exact path='/vegan/favorites' component={Vegan} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Register} />
-            <PrivateRoute exact path='/app/:id' component={LoginApp} />
+            <PrivateRoute exact path='/app' component={LoginApp} />
           </Switch>
         </React.Fragment>
       </Router>
