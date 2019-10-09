@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import {app} from '../../base'
 
 class Home extends Component {
     render () {
         return (
-            <div>
-                This is the Logged In app
-                <button className='btn btn-large btn-warning' onClick={() => app.auth().signOut()}>Logout</button> 
+            
+            <div className='container mt-4' style={{textAlign: 'center'}}>
+                <h3>This is where shit goes</h3>
             </div>
         )
     }

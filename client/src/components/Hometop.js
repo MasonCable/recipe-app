@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import Threeitems from './Threeitems'
+import { app } from '../base'
+//Components
 import Proteins from './Proteins'
 import Searchbar from './Searchbar' 
-import { app } from '../base'
+
 
 // Make sure the following consts are moved to an .env file
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
@@ -33,14 +34,7 @@ class Hometop extends Component {
            return (
             <React.Fragment>
                 <div className="header" style={{backgroundColor: '#94011c'}}>
-                    <Searchbar />
-                        <div >
-                            <div className="d-flex justify-content-around p-3">
-                                {this.state.data.map(item => (
-                                    <Threeitems foodArr={item.recipe} key={item.recipe.url} />
-                                ))}
-                            </div>
-                        </div>
+                    <Searchbar />        
                         {/*This will be the are where the menu is -> on mobile this will be a dropdown*/}
                         <div className="container d-flex justify-content-center">
                             <ul className="list-group list-group-horizontal-sm" >
