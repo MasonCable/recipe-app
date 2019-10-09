@@ -18,13 +18,15 @@ const Login = ({history}) => {
             e.preventDefault()
             const { email, password } = e.target.elements
             
-            try {
-                await 
-                
-                setLink(sha512(email.value).toString()) 
-                app.auth().signInWithEmailAndPassword(email.value, password.value) 
-                history.push(`/app/${sha512(email.value).toString()}`)
-            } catch (err) {
+            try 
+            {
+             await 
+              setLink(sha512(email.value).toString()) 
+              app.auth().signInWithEmailAndPassword(email.value, password.value) 
+              history.push(`/app/${sha512(email.value).toString()}`)
+            }
+             catch (err) 
+            {
                 alert(err)
             } 
 

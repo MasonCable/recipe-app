@@ -21,13 +21,13 @@ class Hometop extends Component {
     }
 
     componentDidMount() {
+        // Make sure to get rid of the alcohol free parameter
         axios.get(`${callLink}q=${this.state.protein}&app_id=${appId}&app_key=${apiKey}&from=0&to=${this.state.amount}&calories=591-722&health=alcohol-free`)
             .then(res => {            
                 this.setState({
                     data: res.data.hits
                 })
             }).catch(err => console.log(err))
-            
     }
     render(){
            return (
