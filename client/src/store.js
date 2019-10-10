@@ -2,13 +2,14 @@ import { createStore, combineReducers } from 'redux'
 
 const initialState = {
     recipes: [],
-    userData: {}
+    userData: {},
+    userToken: ''
 }
 
 const testReducer1 = (state = initialState, action) => {
     switch (action.type) {
-            case 'BUILD_RECIPES' :
-                return {...state, recipes: action.payload}
+            case 'BUILD_RECIPES':
+                return {...state, recipes: action.payload}        
             default:
                 return state
         }
@@ -16,8 +17,10 @@ const testReducer1 = (state = initialState, action) => {
 
 const testReducer2 = (state = initialState, action) => {
     switch (action.type) {
-            case 'GET_USER_DATA' :
+            case 'GET_USER_DATA':
                 return {...state, userData: action.payload}
+            case 'SET_TOKEN':
+                return {...state, userToken: action.payload}
             default:
                 return state
         }

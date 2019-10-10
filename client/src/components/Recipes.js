@@ -17,7 +17,7 @@ class Recipes extends Component{
     componentDidMount() {
         axios.get(`${callLink}q=${this.props.match.params.id}&app_id=${appId}&app_key=${apiKey}&from=0&to=${this.state.amount}&calories=591-722&health=alcohol-free`)
             .then(res => {
-                console.log(res.data.hits)
+                // console.log(res.data.hits)
                 this.setState({
                     recipes: res.data.hits
                 })

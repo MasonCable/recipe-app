@@ -9,10 +9,6 @@ const Login = ({history}) => {
 
     const [ usrLink, setLink ] = useState( '' )
 
-    const handleSignup = () => {
-        console.log('signUp')
-    }
-
     const handleLogin = useCallback(
         async e => {
             e.preventDefault()
@@ -21,8 +17,10 @@ const Login = ({history}) => {
             try 
             {
              await 
-              setLink(sha512(email.value).toString()) 
-              app.auth().signInWithEmailAndPassword(email.value, password.value) 
+                // Line 25 sets the sha512 token to the useLink state
+              setLink(sha512(email.value).toString())
+              app.auth().signInWithEmailAndPassword(email.value, password.value)              
+              localStorage.setItem('token', sha512(email.value).toString())
               history.push(`/app`)
             }
              catch (err) 

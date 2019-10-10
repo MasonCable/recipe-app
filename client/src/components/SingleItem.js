@@ -6,9 +6,9 @@ const SingleItem = ( props ) => {
     const { foodArr } = props
 
     const styles = {
-    backgroundImage: `url(${foodArr.image})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center'
+        backgroundImage: `url(${foodArr.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
     }
 
     return (

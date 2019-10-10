@@ -5,7 +5,6 @@ import { Provider } from './context'
 //Components
 import Hometop from './components/Hometop'
 import Recipes from './components/Recipes'
-import Search from './components/Search'
 import Vegan from './components/Vegan'
 import Login from './components/Login'
 import LoginApp from './components/LoginApp'
@@ -13,9 +12,6 @@ import Register from './components/Register'
 // Auth
 import { AuthProvider } from './Auth'
 import PrivateRoute from './PrivateRoute'
-// Redux
-
-import store from './store'
 
 const App = () => {
   return (
@@ -29,7 +25,7 @@ const App = () => {
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Register} />
             {/* Change this to a PrivateRoute after development */}
-            <Route exact path='/app' component={LoginApp} />  
+            <PrivateRoute exact path='/app' component={LoginApp} />  
           </Switch>
         </React.Fragment>
       </Router>

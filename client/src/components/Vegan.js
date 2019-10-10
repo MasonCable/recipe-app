@@ -2,8 +2,6 @@ import React,{ Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Spinner from '../assets/Spinner'
-import Searchfoods from './Searchfoods'
-
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
 const appId = '2ec14519'
 const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?'
