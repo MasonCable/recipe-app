@@ -58,9 +58,10 @@ const App = props => (
       >
         <div>
           <Route exact path='/' render={() => (
-            <Redirect to='/login' />
+            <Redirect to='/home' />
           )} />
-          <Route exact path='/home' render={Hometop} />
+          
+          <Route exact path='/home' component={Hometop} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Register} />
           <AuthRoute path='/app' component={LoginApp} />
