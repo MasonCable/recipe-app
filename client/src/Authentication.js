@@ -4,7 +4,7 @@ import AuthService from './newAuth'
 
 export const api = new AuthService()
 
-const AuthContext = React.createContect({
+const AuthContext = React.createContext({
     isAuthenticated: false,
     redirectUrl: '/login',
     defaultRedirect: '/'
