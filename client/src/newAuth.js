@@ -21,5 +21,12 @@ class AuthService {
    logout = () => {
        localStorage.clear()
    }
+
+   register = (email, password) => {
+       console.log('register')
+       app.auth().createUserWithEmailAndPassword(email, password)
+       localStorage.setItem('token', sha512(email).toString())
+       return Promise.resolve('All Registered')
+   }
 }
 export default AuthService

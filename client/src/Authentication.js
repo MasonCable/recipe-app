@@ -34,12 +34,21 @@ export class Authentication extends Component {
         this.setState({ isAuthenticated: false })
     }
 
+    register = (email, password, cb) => {
+        api.register(email, password)
+            .then(data => {
+                this.setState({ isAuthenticated: true })
+                cb()
+            }).catch(err => console.log(err))
+    }
+
     render () {
         const value = {
             isAuthenticated: this.state.isAuthenticated,
             redirectUrl: this.props.redirectUrl,
             signin: this.signin,
-            signout: this.signout
+            signout: this.signout,
+            register: this.register
         }
 
         return (

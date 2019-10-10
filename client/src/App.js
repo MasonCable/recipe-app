@@ -46,7 +46,7 @@ import Recipes from './components/Recipes'
 import Vegan from './components/Vegan'
 import Login from './components/Login'
 import LoginApp from './components/LoginApp'
-import Register from './components/Register'
+import Signup from './components/Register'
 
 
 const App = props => (
@@ -63,7 +63,7 @@ const App = props => (
           
           <Route exact path='/home' component={Hometop} />
           <Route exact path='/login' component={Login} />
-          <Route exact path='/signup' component={Register} />
+          <Route exact path='/signup' component={Signup} />
           <AuthRoute path='/app' component={LoginApp} />
         </div>
       </Authentication>
