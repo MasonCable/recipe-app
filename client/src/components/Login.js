@@ -18,7 +18,7 @@ const Login = ({history}) => {
             {
              await 
                 // Line 25 sets the sha512 token to the useLink state
-              setLink(sha512(email.value).toString())
+              
               app.auth().signInWithEmailAndPassword(email.value, password.value)              
               localStorage.setItem('token', sha512(email.value).toString())
               history.push(`/app`)

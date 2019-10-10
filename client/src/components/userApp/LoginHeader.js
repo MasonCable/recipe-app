@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Searchbar from '../Searchbar'
+import { app } from '../../base'
 
 class LoginHeader extends Component {
     render () {
@@ -10,7 +11,7 @@ class LoginHeader extends Component {
                     <ul className="list-group list-group-horizontal-sm">
                         <li className="list-group-item m-4 border-bottom" style={styles}> Profie</li>
                         <li className="list-group-item m-4 border-bottom" style={styles}> Saved Recipes</li>
-                        <li className="list-group-item m-4 border-bottom" style={styles}> Logout</li>
+                        <li onClick={() => app.auth().signOut() && localStorage.clear()} className="list-group-item m-4 border-bottom" style={styles}> Logout</li>
                     </ul>
                 </div>
             </div>
