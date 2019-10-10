@@ -12,11 +12,10 @@ class AuthService {
 
    login = (email, password) => {
        console.log('login')
-       app.auth.signInWithEmailAndPassword(email, password)
-        .then(res => {
-            localStorage.setItem('token', sha512(email).toString())
-            return Promise.resolve('All Logged in')
-        })
+       app.auth().signInWithEmailAndPassword(email, password)
+       localStorage.setItem('token', sha512(email).toString())
+       return Promise.resolve('All Logged in')
+        
    }
 
    logout = () => {
