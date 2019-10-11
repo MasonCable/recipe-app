@@ -18,7 +18,7 @@ class Home extends Component {
     render () {
         return (
             <div className='container mt-4' style={{textAlign: 'center'}}>
-                <h3>This is where shit goes</h3>
+                <h3>This is where stuff goes</h3>
                 <button onClick={this.handleClick}>Sign Out</button>
             </div>
         )
