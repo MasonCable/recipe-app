@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
-// import {app} from '../../base'
+import {app} from '../../base'
 import { withAuth } from '../../Authentication'
 import { Redirect } from 'react-router-dom'
 
 class Home extends Component {
-
+    state = {
+        teams: ['Las Vegas Golden Knights', 'Minnesota Wild']
+    }
+    
     componentDidMount() {
         let uid = localStorage.getItem('token')
-        console.log(uid)
-
+        app.database().ref(`users/${uid}`).on('value', snapshot => {
+            console.log(snapshot.val())
+        })
     }
     handleClick = () => {
         this.props.signout()
