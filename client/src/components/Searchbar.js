@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import { Consumer } from '../context'
-import { Redirect, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
-const appId = '2ec14519'
-const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?'
+// const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
+// const appId = '2ec14519'
+// const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?'
 
 class Searchbar extends Component {
      state = {
@@ -22,7 +20,7 @@ class Searchbar extends Component {
         handleSubmit = (dispatch, e) => {
             e.preventDefault()
 
-            if (this.state.foodVal == '') {
+            if (this.state.foodVal === '') {
                 alert('Fill not a valid string')
             } else {
                 this.setState({

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {app} from '../base'
 import { Route, Switch } from 'react-router-dom'
 //Components
 import Home from './userApp/Home'
@@ -17,7 +16,6 @@ class LoginApp extends Component {
             <LoginHeader />
                 <Switch>
                     <Route path="/app" component={Home} />
-                    
                 </Switch>
             </React.Fragment>
         )

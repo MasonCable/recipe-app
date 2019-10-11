@@ -1,5 +1,4 @@
-import React, { Component, useEffect, useState } from 'react'
-import { Consumer } from '../context'
+import React, { Component} from 'react'
 import { Link } from 'react-router-dom'
 
 
@@ -55,6 +54,7 @@ class Proteins extends Component {
                             
                             <img src={item.image}  
                                 style={{width: 100 + '%', height: 10 + 'em'}}
+                                alt={item.name}
                             />
                                 <h2 style={{color: 'black'}}>{item.name}</h2>
                             
