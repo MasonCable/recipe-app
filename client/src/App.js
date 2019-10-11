@@ -20,8 +20,8 @@
 //         <React.Fragment >
 //           <Switch>            
 //             <Route exact path = '/' component={Hometop} />
-            // <Route exact path = '/recipes/:id' component={Recipes} />            
-            // <Route exact path='/vegan/favorites' component={Vegan} />
+//             <Route exact path = '/recipes/:id' component={Recipes} />            
+//             <Route exact path='/vegan/favorites' component={Vegan} />
 //             <Route exact path='/login' component={Login} />
 //             <Route exact path='/signup' component={Register} />
 //             {/* Change this to a PrivateRoute after development */}
