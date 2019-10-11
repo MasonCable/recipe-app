@@ -9,10 +9,7 @@ class Home extends Component {
     }
     
     componentDidMount() {
-        let uid = localStorage.getItem('token')
-        app.database().ref(`users/${uid}`).on('value', snapshot => {
-            console.log(snapshot.val())
-        })
+        
     }
     handleClick = () => {
         this.props.signout()
