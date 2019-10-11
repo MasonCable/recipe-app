@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 
 class Proteins extends Component {
@@ -41,25 +41,21 @@ class Proteins extends Component {
         
     }
 
-    
-
-    
-
     render(){        
         return (                
             <div className="container mt-4 d-flex flex-wrap justify-content-around">                            
                 {this.state.protein.map(item => (
-                    <Link to={`/recipes/${item.name}`} key={item.name}>
-                        <div className='card hoverState' style={cardStyle} >
-                            
+                    
+                        <div className='card hoverState' style={cardStyle} key={item.name}>
+                            <Link to={`/recipes/${item.name}`}>
                             <img src={item.image}  
                                 style={{width: 100 + '%', height: 10 + 'em'}}
                                 alt={item.name}
                             />
                                 <h2 style={{color: 'black'}}>{item.name}</h2>
-                            
+                            </Link>
                         </div>
-                    </Link>
+                    
                 ))}
             </div>
         )

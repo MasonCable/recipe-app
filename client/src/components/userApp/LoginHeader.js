@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import Searchbar from '../Searchbar'
 import { app } from '../../base'
+import { withAuth } from '../../Authentication'
+import { Redirect } from 'react-router-dom'
 
 class LoginHeader extends Component {
+
+    handleClick = () => {
+        this.props.signout()
+        return <Redirect to='/'/>
+    }
     render () {
         return (
             <div className='header' style={{backgroundColor: '#94011c'}}>
@@ -11,7 +18,7 @@ class LoginHeader extends Component {
                     <ul className="list-group list-group-horizontal-sm">
                         <li className="list-group-item m-4 border-bottom" style={styles}> Profie</li>
                         <li className="list-group-item m-4 border-bottom" style={styles}> Saved Recipes</li>
-                        <li onClick={() => app.auth().signOut() && localStorage.clear()} className="list-group-item m-4 border-bottom" style={styles}> Logout</li>
+                        <li onClick={this.handleClick} className="list-group-item m-4 border-bottom" style={styles}> Logout</li>
                     </ul>
                 </div>
             </div>
@@ -19,6 +26,6 @@ class LoginHeader extends Component {
     }
 }
 
-export default LoginHeader
+export default withAuth(LoginHeader)
 
 const styles = {backgroundColor: '#94011c', color: '#fff', cursor: 'pointer', width: 10 + 'em', textAlign: 'center'}

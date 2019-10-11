@@ -18,8 +18,11 @@ class Home extends Component {
     render () {
         return (
             <div className='container mt-4' style={{textAlign: 'center'}}>
-                <h3>This is where stuff goes</h3>
-                <button onClick={this.handleClick}>Sign Out</button>
+                <div className="container" style={{backgroundColor: 'grey'}}>
+                    <div className="container d-flex justify-content-center">
+                        <h1>Search for recipes</h1>
+                    </div>
+                </div>
             </div>
         )
     }
