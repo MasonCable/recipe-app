@@ -1,6 +1,7 @@
-import * as firebase from 'firebase/app' 
-import 'firebase/auth'
-import 'firebase/database'
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+import 'firebase/firestore';
 
 const config = {
     apiKey: "AIzaSyBP-bt6MUycYr225Yh3GfWY5KEx3_IdFvA",
@@ -10,6 +11,9 @@ const config = {
     storageBucket: "recipe-god.appspot.com",
     messagingSenderId: "238897890196",
     appId: "1:238897890196:web:72e8e588b0649e241ac581"
-}
+};
 
-export const app = firebase.initializeApp(config)
+export const app = firebase.initializeApp(config);
+
+export const db = app.firestore();
+

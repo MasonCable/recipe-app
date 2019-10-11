@@ -36,7 +36,7 @@ export class Authentication extends Component {
 
     register = (email, data, cb) => {
       var {name: fullName, email: email, password: password} = data
-        api.register(email, password)
+        api.register(data)
             .then(data => {
                 this.setState({ isAuthenticated: true })
                 cb()
