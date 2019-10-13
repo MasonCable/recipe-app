@@ -8,12 +8,7 @@ import Saved from './userApp/SavedRecipes'
 import FindRecipes from './userApp/FindRecipes'
 
 class LoginApp extends Component {
-   componentDidMount() {
-       let uid = localStorage.getItem('token')
-        app.database().ref(`users/${uid}`).on('value', snapshot => {
-            console.log(snapshot.val())
-        })
-   }
+   
     render () {
         return (
             <React.Fragment>                

@@ -15,7 +15,7 @@ class AuthService {
        app.auth().signInWithEmailAndPassword(email, password)
        localStorage.setItem('token', sha512(email).toString())
 
-       db.collection('users' + sha512(email).toString()).get()
+       db.collection('user' + sha512(email).toString()).get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 console.log(`${doc.id} => ${doc.data()}`)
@@ -36,19 +36,21 @@ class AuthService {
 
        console.log('register')
        app.auth().createUserWithEmailAndPassword(email, password)
-        // db.collection('users' + sha512(email).toString()).add({
-        //     email: email,
-        //     name: fullName
-        // }).then(docRef => {
-        //     console.log("Document written with ID:", docRef.id)
-        // }).catch(err => console.log("Error adding document: ", err))
+
+        db.collection('user' + sha512(email).toString()).add({
+            email: email,
+            name: fullName,
+            recipes: {}
+        }).then(docRef => {
+            console.log("Document written with ID:", docRef.id)
+        }).catch(err => console.log("Error adding document: ", err))
 
         // The code above is for using firestore and the following code is for using the realtime database
-        app.database().ref('users/' + sha512(email).toString()).set({            
-            name: fullName,
-            email: email,
-            recipes: ['']
-        })
+        // app.database().ref('users/' + sha512(email).toString()).set({            
+        //     name: fullName,
+        //     email: email,
+        //     recipes: ['']
+        // })
 
        localStorage.setItem('token', sha512(email).toString())
        return Promise.resolve('All Registered')

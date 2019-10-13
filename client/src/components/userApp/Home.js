@@ -6,18 +6,19 @@ import { Redirect } from 'react-router-dom'
 class Home extends Component {
     state = {
         userData: {},
-        recipes: [],
+        recipes: {},
         token: localStorage.getItem('token')
     }
     
     componentDidMount() {
         let uid = localStorage.getItem('token')
-        app.database().ref(`users/${uid}`).on('value', snapshot => {
-            this.setState({
-                userData: snapshot.val(),
-                recipes: snapshot.val().recipes
+    
+        db.collection(`user${uid}`).get()
+            .then(querySnapshot => {
+                querySnapshot.forEach(doc => {
+                    console.log(doc.data())
+                })
             })
-        })
     }
    
     handleClick = () => {
@@ -26,14 +27,14 @@ class Home extends Component {
     }
 
     addStuff = () => {
-        app.database().ref('users/' + this.state.token).set({            
-            recipes: [this.state.recipes].push('tits')
-        })
+        db.collection(`user${this.token}`).add({
+            recipes: ['tits']
+        }, { merge: true })
     }
     
     render () {
         
-       if (this.state.recipes.length <= 1) {
+       if (this.state.recipes.length <= 0) {
            return (
                <div>
                     Give user option to add new recipes
@@ -45,8 +46,7 @@ class Home extends Component {
             <div className='container mt-4' style={{textAlign: 'center'}}>
                 <div className="container" style={{backgroundColor: 'grey'}}>
                     <div className="container d-flex justify-content-center">
-                        <h1>Search for recipes</h1>
-                        <button>Add Items to your recipes</button>
+                        <h1>Search for recipes</h1>                        
                     </div>
                 </div>
             </div>
