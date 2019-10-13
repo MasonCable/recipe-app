@@ -45,13 +45,7 @@ class AuthService {
             console.log("Document written with ID:", docRef.id)
         }).catch(err => console.log("Error adding document: ", err))
 
-        // The code above is for using firestore and the following code is for using the realtime database
-        // app.database().ref('users/' + sha512(email).toString()).set({            
-        //     name: fullName,
-        //     email: email,
-        //     recipes: ['']
-        // })
-
+        // Make sure that this happens last
        localStorage.setItem('token', sha512(email).toString())
        return Promise.resolve('All Registered')
    }
