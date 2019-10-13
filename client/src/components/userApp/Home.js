@@ -17,6 +17,10 @@ class Home extends Component {
             .then(querySnapshot => {
                 querySnapshot.forEach(doc => {
                     console.log(doc.data())
+                    this.setState({
+                        userData: doc.data(),
+                        recipes: doc.data().recipes
+                    })
                 })
             })
     }
@@ -34,7 +38,7 @@ class Home extends Component {
     
     render () {
         
-       if (this.state.recipes.length <= 0) {
+       if (this.state.recipes === {}) {
            return (
                <div>
                     Give user option to add new recipes
