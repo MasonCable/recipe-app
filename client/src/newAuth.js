@@ -47,7 +47,7 @@ class AuthService {
         app.database().ref('users/' + sha512(email).toString()).set({            
             name: fullName,
             email: email,
-            recipes: ['Las Vegas Golden Knights', 'Minnesota Wild']
+            recipes: ['']
         })
 
        localStorage.setItem('token', sha512(email).toString())
