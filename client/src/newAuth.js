@@ -46,7 +46,8 @@ class AuthService {
         // The code above is for using firestore and the following code is for using the realtime database
         app.database().ref('users/' + sha512(email).toString()).set({            
             name: fullName,
-            email: email
+            email: email,
+            recipes: ['Las Vegas Golden Knights', 'Minnesota Wild']
         })
 
        localStorage.setItem('token', sha512(email).toString())

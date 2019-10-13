@@ -1,22 +1,39 @@
 import React, { Component } from 'react'
-import {app} from '../../base'
+import {app, db} from '../../base'
 import { withAuth } from '../../Authentication'
 import { Redirect } from 'react-router-dom'
 
 class Home extends Component {
     state = {
-        teams: ['Las Vegas Golden Knights', 'Minnesota Wild']
+        userData: {},
+        recipes: []
     }
     
     componentDidMount() {
-        
+        let uid = localStorage.getItem('token')
+        app.database().ref(`users/${uid}`).on('value', snapshot => {
+            this.setState({
+                userData: snapshot.val(),
+                recipes: snapshot.val().recipes
+            })
+        })
     }
+   
     handleClick = () => {
         this.props.signout()
         return <Redirect to='/login' />
     }
+    
     render () {
-        return (
+        
+       if (this.state.recipes.length === 2) {
+           return (
+               <div>
+                    Give user option to add new recipes
+               </div>
+           )
+       } else {
+            return (
             <div className='container mt-4' style={{textAlign: 'center'}}>
                 <div className="container" style={{backgroundColor: 'grey'}}>
                     <div className="container d-flex justify-content-center">
@@ -25,6 +42,7 @@ class Home extends Component {
                 </div>
             </div>
         )
+       }
     }
 }
 
