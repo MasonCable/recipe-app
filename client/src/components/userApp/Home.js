@@ -33,9 +33,9 @@ class Home extends Component {
 
     addStuff = () => {
         // This works
-        // 1.) Make sure you pass the doc() paramter
+        // 1.) Make sure you pass the doc() paramter with the propeer data
         // 2.) Make sure after the argument we add { merge: true }        
-        db.collection(`user${this.state.token}`).doc().set({
+        db.collection(`user${this.state.token}`).doc('FavRecipes').set({
             recipes: this.state.userRecipes
         }, { merge: true })
     }
