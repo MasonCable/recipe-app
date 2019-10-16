@@ -53,11 +53,15 @@ class Home extends Component {
             )
         } else {
             return (
-                <div className="container" style={{textAlign: 'center', marginTop: 3 + '%'}}>
-                    <h1 style={{fontWeigth: 'bold', fontSize: '5rem'}}>Popular Recipes</h1>
-                    {this.props.recipes.map(item => (
-                        <h1 key={item.recipe.label}>{item.recipe.label}</h1>
-                    ))}
+                <div style={{textAlign: 'center'}}>
+                    <h4 style={{fontWeigth: 'bold', fontSize: '5rem'}}>Popular Recipes</h4>
+                    <div className="container mt-3 d-flex justify-content-between flex-wrap" >                    
+                        {this.props.recipes.map(item => (
+                            <div className="box m-2 border" style={{textAlign: 'center'}} key={item.recipe.label}>
+                                <h3>{item.recipe.label}</h3>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             )
         }
