@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {app, db} from '../../base'
+import { connect } from 'react-redux'
 import { withAuth } from '../../Authentication'
 import { Redirect } from 'react-router-dom'
 
@@ -7,7 +8,7 @@ class Home extends Component {
     state = {
         userData: {},
         recipes: {},
-        userRecipes: ['Turkey', 'cheese', 'what the heck'],
+        userRecipes: ['Turkey', 'cheese', 'Turtle stew'],
         token: localStorage.getItem('token')
     }
     
@@ -35,33 +36,38 @@ class Home extends Component {
         // This works
         // 1.) Make sure you pass the doc() paramter with the propeer data
         // 2.) Make sure after the argument we add { merge: true }        
-        db.collection(`user${this.state.token}`).doc('FavRecipes').set({
-            recipes: this.state.userRecipes
-        }, { merge: true })
+        db.collection(`user${this.state.token}`).get()
+            .then(querySnapshot => {
+                querySnapshot.forEach(doc => {
+                    console.log(doc.data())
+                })
+            })
     }
     
     render () {
-        
-       if (this.state.recipes === {}) {
-           return (
-               <div>
-                    Give user option to add new recipes
-                    <button onClick={this.addStuff}>Add Items to your recipes</button>
-               </div>
-           )
-       } else {
+        if (this.props.recipes.length === 0) {
             return (
-            <div className='container mt-4' style={{textAlign: 'center'}}>
-                <div className="container" style={{backgroundColor: 'grey'}}>
-                    <div className="container d-flex justify-content-center">
-                        <h1>Search for recipes</h1>                        
-                    </div>
-                    <button onClick={this.addStuff} className="btn btn-primary p-2">Add to the dataBase</button>
+                <div className="container" style={{textAlign: 'center', marginTop: 3 + '%'}}>
+                    <h1>Loading</h1>
                 </div>
-            </div>
-        )
-       }
+            )
+        } else {
+            return (
+                <div className="container" style={{textAlign: 'center', marginTop: 3 + '%'}}>
+                    <h1 style={{fontWeigth: 'bold', fontSize: '5rem'}}>Popular Recipes</h1>
+                    {this.props.recipes.map(item => (
+                        <h1 key={item.recipe.label}>{item.recipe.label}</h1>
+                    ))}
+                </div>
+            )
+        }
     }
 }
 
-export default withAuth(Home)
+function mapStateToProps(appState) {
+    return {
+        recipes: appState.testReducer1.recipes
+    }
+}
+
+export default withAuth(connect(mapStateToProps)(Home))
