@@ -16,7 +16,7 @@ const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/sea
 class LoginApp extends Component {
 
     componentDidMount() {
-        axios.get(`${callLink}q='beef'&app_id=${appId}&app_key=${apiKey}&from=0&to=5&calories=591-722`)
+        axios.get(`${callLink}q='beef'&app_id=${appId}&app_key=${apiKey}&from=0&to=4&calories=591-722`)
             .then(res => {
                 console.log(res.data.hits)
                 store.dispatch({
