@@ -3,6 +3,8 @@ import {app, db} from '../../base'
 import { connect } from 'react-redux'
 import { withAuth } from '../../Authentication'
 import { Redirect } from 'react-router-dom'
+// Components
+import Spinner from '../../assets/Spinner'
 
 class Home extends Component {
     state = {
@@ -48,7 +50,7 @@ class Home extends Component {
         if (this.props.recipes.length === 0) {
             return (
                 <div className="container" style={{textAlign: 'center', marginTop: 3 + '%'}}>
-                    <h1>Loading</h1>
+                    <Spinner />
                 </div>
             )
         } else {

@@ -12,7 +12,8 @@ const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/sea
 class Recipes extends Component{
     state = {
         recipes: [],
-        amount: 10
+        amount: 10,
+        isLoggedIn: localStorage.getItem('token')
     }
     componentDidMount() {
         axios.get(`${callLink}q=${this.props.match.params.id}&app_id=${appId}&app_key=${apiKey}&from=0&to=${this.state.amount}&calories=591-722&health=alcohol-free`)
@@ -27,7 +28,7 @@ class Recipes extends Component{
     const { recipes } = this.state
         if(recipes.length === 0){
            return (<Spinner />) 
-        }else {
+        } else if (this.state.isLoggedIn === '') {
             return (
                 <React.Fragment>
                 <Link to='/'>Go Back</Link>
@@ -46,9 +47,29 @@ class Recipes extends Component{
                             </div>
                         </div>
                     ))}
-                    
                 </div>
-                
+                </React.Fragment>
+            )   
+        }else {
+            return (
+                <React.Fragment>
+                <Link to='/app'>Go Back</Link>
+                <div className="container d-flex justify-content-around flex-wrap">
+                    {recipes.map(item => (
+                        <div className="car d-flex m-5" key={item.recipe.label} style={{width: 25 + 'em'}}>
+                            <img src={item.recipe.image} style={{ width: 100 + '%' }}/>
+                            <div className="card-body">
+                                <h5 className="card-title">
+                                    {item.recipe.label}
+                                </h5>
+                                <ul className="list-group list-group-flush">
+                                    <div className="list-group-item"><strong>Calories</strong>: {Math.round(item.recipe.calories)}</div>
+                                    <div className="list-group-item"><strong>Description</strong>: {item.recipe.dietLabels.join(', ')}</div>
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
+                </div>
                 </React.Fragment>
             )   
         }
