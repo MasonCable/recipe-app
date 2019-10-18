@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {app, db} from '../../base'
+import {db} from '../../base'
 import { connect } from 'react-redux'
 import { withAuth } from '../../Authentication'
-import { Redirect } from 'react-router-dom'
+import { Redirect} from 'react-router-dom'
 // Components
 import Spinner from '../../assets/Spinner'
 
@@ -45,6 +45,20 @@ class Home extends Component {
                 })
             })
     }
+    // The Following function takes the string value and shortens it if needed
+    text_truncate = (str, length, ending) => {
+        if (length == null) {
+        length = 100
+        }
+        if (ending == null) {
+        ending = '...'
+        }
+        if (str.length > length) {
+        return str.substring(0, length - ending.length) + ending
+        } else {
+        return str
+        }
+  }
     
     render () {
         if (this.props.recipes.length === 0) {
@@ -60,7 +74,7 @@ class Home extends Component {
                         {this.props.recipes.map(item => (
                             <div className="box m-2" style={{textAlign: 'center'}} key={item.recipe.label}>
                                 <img src={item.recipe.image} alt={item.recipe.label} style={{ width: 10 + 'em' }} />
-                                <h3>{item.recipe.label}</h3>
+                                <h3>{this.text_truncate(item.recipe.label, 20)}</h3>
                                 <button className="btn btn-sm btn-warning">View Recipe</button>
                             </div>
                         ))}
