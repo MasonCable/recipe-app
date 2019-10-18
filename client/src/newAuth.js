@@ -15,12 +15,13 @@ class AuthService {
        app.auth().signInWithEmailAndPassword(email, password)
        localStorage.setItem('token', sha512(email).toString())
 
-       db.collection('user' + sha512(email).toString()).get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data()}`)
-            })
-        })
+    // Not Usefull
+    //    db.collection('user' + sha512(email).toString()).get()
+    //     .then((querySnapshot) => {
+    //         querySnapshot.forEach((doc) => {
+    //             console.log(`${doc.id} => ${doc.data()}`)
+    //         })
+    //     })
 
        return Promise.resolve('All Logged in')
         

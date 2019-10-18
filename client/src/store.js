@@ -6,6 +6,7 @@ const initialState = {
     userToken: ''
 }
 
+// Make sure that this gets moved into a seperate file
 const testReducer1 = (state = initialState, action) => {
     switch (action.type) {
             case 'BUILD_RECIPES':
@@ -15,6 +16,7 @@ const testReducer1 = (state = initialState, action) => {
         }
 }
 
+// Make sure that this gets moved into a seperate file
 const testReducer2 = (state = initialState, action) => {
     switch (action.type) {
             case 'GET_USER_DATA':
