@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { app } from '../base'
 import axios from 'axios'
+import store from '../store'
 //Components
 import Home from './userApp/Home'
 import LoginHeader from './userApp/LoginHeader'
 import Saved from './userApp/SavedRecipes'
 import FindRecipes from './userApp/FindRecipes'
-import store from '../store'
+import UserProfile from './userApp/UserProfile'
 // Login credentials
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
 const appId = '2ec14519'
@@ -34,6 +35,7 @@ class LoginApp extends Component {
                         <Route exact path="/app" component={Home} />
                         <Route exact path="/app/saved" component={Saved} />
                         <Route exact path="/app/recipes" component={FindRecipes} />
+                        <Route exact path="/app/user" component={UserProfile} />
                     </Switch>
             </React.Fragment>
         )

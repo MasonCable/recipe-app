@@ -32,6 +32,9 @@
     transform: rotate(360deg);
   }
 } */
+button:focus {
+  outline: 0;
+}
 .hoverState {
   border-radius: 50%;
   border: 1px solid #2323 !important;

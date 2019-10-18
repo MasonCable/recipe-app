@@ -55,12 +55,13 @@ class Home extends Component {
             )
         } else {
             return (
-                <div style={{textAlign: 'center'}}>
-                    <h4 style={{fontWeigth: 'bold', fontSize: '5rem'}}>Popular Recipes</h4>
+                <div style={{textAlign: 'center'}}>                
                     <div className="container mt-3 d-flex justify-content-between flex-wrap" >                    
                         {this.props.recipes.map(item => (
-                            <div className="box m-2 border" style={{textAlign: 'center'}} key={item.recipe.label}>
+                            <div className="box m-2" style={{textAlign: 'center'}} key={item.recipe.label}>
+                                <img src={item.recipe.image} alt={item.recipe.label} style={{ width: 10 + 'em' }} />
                                 <h3>{item.recipe.label}</h3>
+                                <button className="btn btn-sm btn-warning">View Recipe</button>
                             </div>
                         ))}
                     </div>
