@@ -6,6 +6,7 @@ import { withAuth } from '../../Authentication'
 import { Redirect } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBell } from '@fortawesome/free-solid-svg-icons'
 
 class LoginHeader extends Component {
 
@@ -15,16 +16,15 @@ class LoginHeader extends Component {
     }
     render () {
         return (
-            <div className='header' style={{backgroundColor: '#94011c'}}>
-                <Searchbar />
-                {/* <div className="container d-flex justify-content-center">
-                    <ul className="list-group list-group-horizontal-sm">
-                        <li className="list-group-item m-4 border-bottom" style={styles}> Profie</li>
-                        <li className="list-group-item m-4 border-bottom" style={styles}> Saved Recipes</li>
-                        <li onClick={this.handleClick} className="list-group-item m-4 border-bottom" style={styles}> Logout</li>
-                    </ul>
-                </div> */}
-                <FontAwesomeIcon icon={faUser} color={'#fff'} /> 
+            <div className='d-flex justify-content-between' style={{backgroundColor: '#94011c'}}>                        
+                <div style={{width: 70 + '%'}}>
+                    <Searchbar />
+                </div>
+                <div className="p-4 d-flex justify-content-between" style={{textAlign: 'center', width: 10 + 'em'}}>
+                    <FontAwesomeIcon icon={faUser} color={'#fff'} size='lg' style={iconStyles}/>                         
+                    <FontAwesomeIcon icon={faBell} color={'#fff'} size='lg' style={iconStyles} />
+                </div>
+                                      
             </div>
         )
     }
@@ -33,3 +33,6 @@ class LoginHeader extends Component {
 export default withAuth(LoginHeader)
 
 const styles = {backgroundColor: '#94011c', color: '#fff', cursor: 'pointer', width: 10 + 'em', textAlign: 'center'}
+const iconStyles = {
+    cursor: 'pointer'
+}
