@@ -76,6 +76,7 @@ class Home extends Component {
         } else if (this.props.dRecipes.length !== 0) {
             return (
                 <div style={{textAlign: 'center'}}>
+                {/* <button className="btn btn-lg btn-primary">Go Back</button> */}
                     <h3 className='border-bottom'>Search Results for</h3>
                     <div className="container  d-flex justify-content-center flex-wrap">
                         {this.props.dRecipes.map(item => (
