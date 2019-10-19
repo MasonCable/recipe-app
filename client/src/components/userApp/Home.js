@@ -6,7 +6,8 @@ import { withAuth } from '../../Authentication'
 import { Redirect} from 'react-router-dom'
 // Components
 import Spinner from '../../assets/Spinner'
-
+import DishTypes from './DishTypes'
+// API keys
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
 const appId = '2ec14519'
 const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?'
@@ -76,8 +77,9 @@ class Home extends Component {
         } else if (this.props.dRecipes.length !== 0) {
             return (
                 <div style={{textAlign: 'center'}}>
-                {/* <button className="btn btn-lg btn-primary">Go Back</button> */}
-                    <h3 className='border-bottom'>Search Results for</h3>
+                    <h4>Dish Types</h4>               
+                    <DishTypes />
+                    {/* <h3 className='border-bottom'>Search Results for</h3> */}
                     <div className="container  d-flex justify-content-center flex-wrap">
                         {this.props.dRecipes.map(item => (
                             <div className="box m-4" style={{ textAlign: 'center' }} key={item.recipe.uri}>
@@ -92,7 +94,9 @@ class Home extends Component {
           
         }else {
             return (
-                <div style={{textAlign: 'center'}}>                
+                <div style={{textAlign: 'center'}}> 
+                    <h4>Dish Types</h4>               
+                    <DishTypes />
                     <div className="container mt-3 d-flex justify-content-around flex-wrap" >                    
                         {this.props.recipes.map(item => (
                             <div className="box m-2" style={{textAlign: 'center'}} key={item.recipe.uri}>
