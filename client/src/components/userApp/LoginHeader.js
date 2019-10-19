@@ -8,7 +8,7 @@ import { Redirect, Link } from 'react-router-dom'
 // Font Awesome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faBell } from '@fortawesome/free-solid-svg-icons'
+import { faBook } from '@fortawesome/free-solid-svg-icons'
 import { faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
 
 class LoginHeader extends Component {
@@ -23,10 +23,10 @@ class LoginHeader extends Component {
                 <div style={{width: 65 + '%'}}>
                     <SearchbarUser />
                 </div>
-                <div className="p-4 d-flex justify-content-between" style={{textAlign: 'center', width: 8 + 'em'}}>
-                   {/* <Link to='/app/user'><FontAwesomeIcon icon={faUser} color={'#fff'} size='lg' style={iconStyles}/> </Link>                        
-                    <FontAwesomeIcon icon={faBell} color={'#fff'} size='lg' style={iconStyles} /> */}
-                    <p style={{ fontWeight: 'bold', color: '#fff' }}>Logout</p>
+                <div className="p-4 d-flex justify-content-between" style={{textAlign: 'center', width: 9 + 'em'}}>
+                   <Link to='/app/user'><FontAwesomeIcon icon={faUser} color={'#fff'} size='lg' style={iconStyles}/> </Link>                        
+                    <FontAwesomeIcon icon={faBook} color={'#fff'} size='lg' style={iconStyles} />
+                    {/* <p style={{ fontWeight: 'bold', color: '#fff' }}>Logout</p> */}
                     <FontAwesomeIcon onClick={this.handleClick} icon={faSignOutAlt} color={'#fff'} size='lg' style={iconStyles} />
                 </div>
                                       
