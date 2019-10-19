@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import store from '../../store'
+
+const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
+const appId = '2ec14519'
+const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?'
 
 
 class DishTypes extends Component {
@@ -25,14 +30,26 @@ class DishTypes extends Component {
     }
 
     handleClick = (e) => {
-        console.log(e)
+        axios.get(`${callLink}q=''&app_id=${appId}&app_key=${apiKey}&from=0&to=4&dishType=${e}`)
+            .then(res => {
+                // console.log(res.data.hits)
+                // store.dispatch({
+                //     type: 'BUILD_RECIPES',
+                //     payload: []
+                // })
+                store.dispatch({
+                    type: 'BUILD_RECIPES',
+                    payload: res.data.hits
+                })
+            })
+        
     }
     render () {
         return (
             <div className="container mt-4 d-flex flex-wrap justify-content-around border-bottom" >
                 {this.state.types.map(item => (
-                    <div className="card " style={cardStyle} key={item.name} 
-                    onClick={this.handleClick.bind(item.name)}>
+                    <div className="card hoverState" style={cardStyle} key={item.name} 
+                    onClick={() => this.handleClick(item.name)}>
                         <img src={item.image} 
                              alt={item.name}
                              style={{width: 100 + '%', height: 10 + 'em', borderRadius: 50 + '%'}}
