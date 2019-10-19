@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import { app } from '../base'
 import axios from 'axios'
 import store from '../store'
+import { buildDishType } from '.././actions/userActions'
 //Components
 import Home from './userApp/Home'
 import LoginHeader from './userApp/LoginHeader'
@@ -25,6 +26,7 @@ class LoginApp extends Component {
                     payload: res.data.hits
                 })
             }).catch(err => console.log(err))
+        
     }
    
     render () {

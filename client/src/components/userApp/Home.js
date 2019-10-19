@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import {db} from '../../base'
 import { connect } from 'react-redux'
 import { withAuth } from '../../Authentication'
 import { Redirect} from 'react-router-dom'
 // Components
 import Spinner from '../../assets/Spinner'
+
+const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
+const appId = '2ec14519'
+const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?'
 
 class Home extends Component {
     state = {
@@ -67,12 +72,29 @@ class Home extends Component {
                     <Spinner />
                 </div>
             )
-        } else {
+            // This should be put into the else return
+        } else if (this.props.dRecipes.length !== 0) {
+            return (
+                <div style={{textAlign: 'center'}}>
+                    <h3 className='border-bottom'>Search Results for</h3>
+                    <div className="container  d-flex justify-content-center flex-wrap">
+                        {this.props.dRecipes.map(item => (
+                            <div className="box m-4" style={{ textAlign: 'center' }} key={item.recipe.uri}>
+                                <img src={item.recipe.image} alt={item.recipe.label} style={{ width: 10 + 'em' }} />
+                                <h3>{this.text_truncate(item.recipe.label, 20)}</h3>
+                                <button className="btn btn-sm btn-warning">View Recipe</button>
+                            </div>
+                        ))}
+                    </div>   
+                </div>
+            )
+          
+        }else {
             return (
                 <div style={{textAlign: 'center'}}>                
-                    <div className="container mt-3 d-flex justify-content-between flex-wrap" >                    
+                    <div className="container mt-3 d-flex justify-content-around flex-wrap" >                    
                         {this.props.recipes.map(item => (
-                            <div className="box m-2" style={{textAlign: 'center'}} key={item.recipe.label}>
+                            <div className="box m-2" style={{textAlign: 'center'}} key={item.recipe.uri}>
                                 <img src={item.recipe.image} alt={item.recipe.label} style={{ width: 10 + 'em' }} />
                                 <h3>{this.text_truncate(item.recipe.label, 20)}</h3>
                                 <button className="btn btn-sm btn-warning">View Recipe</button>
@@ -87,7 +109,8 @@ class Home extends Component {
 
 function mapStateToProps(appState) {
     return {
-        recipes: appState.testReducer1.recipes
+        recipes: appState.testReducer1.recipes,
+        dRecipes: appState.testReducer1.dRecipes
     }
 }
 

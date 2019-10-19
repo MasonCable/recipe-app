@@ -26,10 +26,10 @@ class SearchbarUser extends Component {
                 alert('Fill not a valid string')
             } else {
                 e.preventDefault()
-                axios.get(`${callLink}q='${this.state.foodVal}'&app_id=${appId}&app_key=${apiKey}&from=0&to=4&calories=591-722`)
+                axios.get(`${callLink}q='${this.state.foodVal}'&app_id=${appId}&app_key=${apiKey}&from=0&to=15&calories=591-722`)
                     .then(res => {
                         store.dispatch({
-                            type: 'BUILD_RECIPES',
+                            type: 'DEFAULT_RECIPES',
                             payload: res.data.hits
                         })
                     })
