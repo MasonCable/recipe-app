@@ -32,11 +32,11 @@ class DishTypes extends Component {
     handleClick = (e) => {
         axios.get(`${callLink}q=''&app_id=${appId}&app_key=${apiKey}&from=0&to=4&dishType=${e}`)
             .then(res => {
-                // console.log(res.data.hits)
-                // store.dispatch({
-                //     type: 'BUILD_RECIPES',
-                //     payload: []
-                // })
+                console.log(res.data.hits)
+                store.dispatch({
+                    type: 'BUILD_RECIPES',
+                    payload: []
+                }) &&
                 store.dispatch({
                     type: 'BUILD_RECIPES',
                     payload: res.data.hits
