@@ -14,7 +14,7 @@ const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/sea
 
 
 
-class Hometop extends Component {
+class HomeSearch extends Component {
     render(){
            return (
             <React.Fragment>
@@ -30,14 +30,13 @@ class Hometop extends Component {
                                  
                             </ul>
                         </div>
-                </div>
-                <Proteins />
+                </div>                
             </React.Fragment>
         )
        
     }
 }
 
-export default Hometop
+export default HomeSearch
 
 const styles = {backgroundColor: '#94011c', color: '#fff', cursor: 'pointer', width: 10 + 'em', textAlign: 'center'}

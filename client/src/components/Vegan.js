@@ -1,10 +1,14 @@
 import React,{ Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import Spinner from '../assets/Spinner'
+import HomeSearch from './HomeSearch'
+
+
 const apiKey = 'c4ea27eb1bfbd60afdd06aa6769682f6'
 const appId = '2ec14519'
 const callLink = 'https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?'
+
+
 
 class Vegan extends Component {
     state = {
@@ -30,7 +34,7 @@ class Vegan extends Component {
         } else {
             return (
                   <React.Fragment>
-                <Link to='/'>Go Back</Link>
+                  <HomeSearch />                
                 <div className="container d-flex justify-content-around flex-wrap">
                     {/* <h1>Hello world this is the {this.props.match.params.id} page</h1> */}
 

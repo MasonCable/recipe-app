@@ -10,8 +10,10 @@ import LoginApp from './components/LoginApp'
 import Signup from './components/Register'
 
 
+
 const App = props => (
   <React.Fragment>
+  
     <Router>
       <Authentication
         redirectUrl='/'
