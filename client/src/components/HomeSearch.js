@@ -5,6 +5,9 @@ import { app } from '../base'
 //Components
 import Proteins from './Proteins'
 import Searchbar from './Searchbar' 
+// Font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 
 
 // Make sure the following consts are moved to an .env file
@@ -18,18 +21,13 @@ class HomeSearch extends Component {
     render(){
            return (
             <React.Fragment>
-                <div className="header" style={{backgroundColor: '#94011c'}}>
-                    <Searchbar />        
-                        {/*This will be the are where the menu is -> on mobile this will be a dropdown*/}
-                        <div className="container d-flex justify-content-center">
-                            <ul className="list-group list-group-horizontal-sm" >
-                                 <Link to='/' ><li className="list-group-item m-4 border-bottom" style={styles}>Home</li></Link>
-                                 <Link to='/vegan/favorites'><li className="list-group-item m-4 border-bottom" style={styles}>Vegan Favorites</li></Link>
-                                 <Link to="/login"><li className="list-group-item m-4 border-bottom" style={styles}>Login/Register</li></Link>
-                                    {/* Add these when the routes are built */}
-                                 
-                            </ul>
-                        </div>
+                <div className="d-flex justify-content-between" style={{backgroundColor: '#94011c'}}>   
+                    <div style={{ width: 65 + '%' }}>
+                        <Searchbar />
+                    </div>     
+                    <div className=" p-4  d-flex justify-content-between" >
+                        <Link to='/home'><FontAwesomeIcon icon={faHome} color={'#fff'} size='lg' style={iconStyles} /></Link>
+                    </div>
                 </div>                
             </React.Fragment>
         )
@@ -40,3 +38,4 @@ class HomeSearch extends Component {
 export default HomeSearch
 
 const styles = {backgroundColor: '#94011c', color: '#fff', cursor: 'pointer', width: 10 + 'em', textAlign: 'center'}
+const iconStyles = { cursor: 'pointer' }

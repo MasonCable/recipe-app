@@ -18,7 +18,7 @@ class Vegan extends Component {
     componentDidMount() {
         axios.get(`${callLink}q='vegan'&app_id=${appId}&app_key=${apiKey}&from=0&to=10&calories=591-722`)
             .then(res => {
-                console.log(res.data.hits)
+                // console.log(res.data.hits)
 
                 this.setState({
                     vFoods: res.data.hits
