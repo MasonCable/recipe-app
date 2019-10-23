@@ -24,7 +24,7 @@ class Hometop extends Component {
     render(){
            return (
             <React.Fragment>
-                <div className="d-flex justify-content-between" style={{backgroundColor: '#94011c'}}>        
+                <div className="d-flex justify-content-between" style={{backgroundColor: '#94011c', padding: 1 + '.' + 3 + '%'}}>        
                     <div style={{ width: 65 + '%' }}>
                         <Searchbar />
                     </div>                        

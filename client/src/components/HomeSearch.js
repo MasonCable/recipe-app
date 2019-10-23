@@ -8,6 +8,8 @@ import Searchbar from './Searchbar'
 // Font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { faSeedling } from '@fortawesome/free-solid-svg-icons'
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 
 
 // Make sure the following consts are moved to an .env file
@@ -21,12 +23,14 @@ class HomeSearch extends Component {
     render(){
            return (
             <React.Fragment>
-                <div className="d-flex justify-content-between" style={{backgroundColor: '#94011c'}}>   
+                <div className="d-flex justify-content-between" style={{backgroundColor: '#94011c', padding: 1 + '.' + 3 + '%'}}>   
                     <div style={{ width: 65 + '%' }}>
                         <Searchbar />
                     </div>     
-                    <div className=" p-4  d-flex justify-content-between" >
+                    <div className=" p-4  d-flex justify-content-between" style={{textAlign: 'center', width: 9 + 'em'}}>
                         <Link to='/home'><FontAwesomeIcon icon={faHome} color={'#fff'} size='lg' style={iconStyles} /></Link>
+                        <Link to='/vegan/favorites'><FontAwesomeIcon icon={faSeedling} color={'#fff'} size='lg' style={iconStyles} /></Link>
+                        <Link to='/login'><FontAwesomeIcon icon={faSignInAlt} color={'#fff'} size='lg' style={iconStyles} /></Link>
                     </div>
                 </div>                
             </React.Fragment>
