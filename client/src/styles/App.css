@@ -41,6 +41,10 @@ button:focus {
   padding: 2.3em; 
 }
 
+.prot {
+  border: 1px solid #2323;
+}
+
 .hoverBtn:hover {
   transform: scale(1.2);
   color: #fff;

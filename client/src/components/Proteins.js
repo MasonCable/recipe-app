@@ -46,7 +46,7 @@ class Proteins extends Component {
             <div className="container mt-4 d-flex flex-wrap justify-content-around">                            
                 {this.state.protein.map(item => (
                     
-                        <div className='card hoverState' style={cardStyle} key={item.name}>
+                        <div className='card hoverState border' style={cardStyle} key={item.name}>
                             <Link to={`/recipes/${item.name}`}>
                             <img src={item.image}  
                                 style={{width: 100 + '%', height: 10 + 'em'}}
