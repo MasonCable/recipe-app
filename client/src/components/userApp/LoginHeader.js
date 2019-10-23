@@ -19,7 +19,7 @@ class LoginHeader extends Component {
     }
     render () {
         return (
-            <div className='d-flex justify-content-between' style={{backgroundColor: '#94011c'}}>                        
+            <div className='d-flex justify-content-between' style={{backgroundColor: '#94011c', padding: 1 + '.' + 3 + '%'}}>                        
                 <div style={{width: 65 + '%'}}>
                     <SearchbarUser />
                 </div>
