@@ -82,7 +82,7 @@ class Home extends Component {
                     {/* <h3 className='border-bottom'>Search Results for</h3> */}
                     <div className="container  d-flex justify-content-center flex-wrap">
                         {this.props.dRecipes.map(item => (
-                            <div className="box m-4" style={{ textAlign: 'center' }} key={item.recipe.uri}>
+                            <div className="box m-4 border-bottom" style={{ textAlign: 'center' }} key={item.recipe.uri}>
                                 <img src={item.recipe.image} alt={item.recipe.label} style={{ width: 10 + 'em' }} />
                                 <h3>{this.text_truncate(item.recipe.label, 20)}</h3>
                                 <button className="btn btn-sm btn-warning">View Recipe</button>
@@ -99,7 +99,7 @@ class Home extends Component {
                     <DishTypes />
                     <div className="container mt-3 d-flex justify-content-around flex-wrap" >                    
                         {this.props.recipes.map(item => (
-                            <div className="box m-2" style={{textAlign: 'center'}} key={item.recipe.uri}>
+                            <div className="box m-2 border-bottom pb-2" style={{textAlign: 'center'}} key={item.recipe.uri}>
                                 <img src={item.recipe.image} alt={item.recipe.label} style={{ width: 10 + 'em' }} />
                                 <h3>{this.text_truncate(item.recipe.label, 20)}</h3>
                                 <button className="btn btn-sm btn-warning">View Recipe</button>
