@@ -6,6 +6,7 @@ const initialState = {
     foodTypes: [],
     dishType: [],
     userData: {},
+    viewRecipe: {},
     userToken: ''
 }
 
@@ -20,6 +21,8 @@ const testReducer1 = (state = initialState, action) => {
                 return {...state, foodTypes: action.payload}
             case 'DISH_TYPE':
                 return {...state, dishType: action.payload}
+            case 'VIEW_RECIPE':
+                return {...state, viewRecipe: action.payload}
             default:
                 return state
         }

@@ -3,7 +3,8 @@ import axios from 'axios'
 import {db} from '../../base'
 import { connect } from 'react-redux'
 import { withAuth } from '../../Authentication'
-import { Redirect} from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
+import store from '../../store'
 // Components
 import Spinner from '../../assets/Spinner'
 import DishTypes from './DishTypes'
@@ -35,9 +36,11 @@ class Home extends Component {
             })
     }
    
-    handleClick = () => {
-        this.props.signout()
-        return <Redirect to='/login' />
+    handleClick = (data) => {
+        store.dispatch({
+            type: 'VIEW_RECIPE',
+            payload: data
+        })
     }
 
     addStuff = () => {
@@ -74,35 +77,19 @@ class Home extends Component {
                 </div>
             )
             // This should be put into the else return
-        } else if (this.props.dRecipes.length !== 0) {
-            return (
-                <div style={{textAlign: 'center'}}>
-                    <h4>Dish Types</h4>               
-                    <DishTypes />
-                    {/* <h3 className='border-bottom'>Search Results for</h3> */}
-                    <div className="container  d-flex justify-content-center flex-wrap">
-                        {this.props.dRecipes.map(item => (
-                            <div className="box m-4 border-bottom" style={{ textAlign: 'center' }} key={item.recipe.uri}>
-                                <img src={item.recipe.image} alt={item.recipe.label} style={{ width: 10 + 'em' }} />
-                                <h3>{this.text_truncate(item.recipe.label, 20)}</h3>
-                                <button className="btn btn-sm btn-warning">View Recipe</button>
-                            </div>
-                        ))}
-                    </div>   
-                </div>
-            )
-          
-        }else {
+        } else {
             return (
                 <div style={{textAlign: 'center'}}> 
-                    <h4>Dish Types</h4>               
-                    <DishTypes />
+                    <h4>Dish Types</h4>                                   
                     <div className="container mt-3 d-flex justify-content-around flex-wrap" >                    
                         {this.props.recipes.map(item => (
                             <div className="box m-2 border-bottom pb-2" style={{textAlign: 'center'}} key={item.recipe.uri}>
                                 <img src={item.recipe.image} alt={item.recipe.label} style={{ width: 10 + 'em' }} />
                                 <h3>{this.text_truncate(item.recipe.label, 20)}</h3>
-                                <button className="btn btn-sm btn-warning">View Recipe</button>
+                                <div className="d-flex flex-column">
+                                    <Link to='/app/recipe'><button onClick={this.handleClick(item.recipe)}  className="btn btn-sm btn-warning mb-2">View Recipe</button></Link>
+                                    <Link to='/app'> <button onClick={() => console.log(item.recipe)} className="btn btn-sm btn-primary">Add to Favorites</button></Link>
+                                </div>
                             </div>
                         ))}
                     </div>
