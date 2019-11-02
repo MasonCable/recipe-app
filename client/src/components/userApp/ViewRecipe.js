@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 import { withAuth } from '../../Authentication'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 
 class ViewRecipe extends Component {
     state = {
         title: this.props.label,
         ingredientsQuantity: [],
-        ingredientsFood: []
+        ingredientsFood: [],
+        test: undefined
     }
-    componentDidMount() {
-            this.setState({
-              ingredientsFood: this.props.viewRecipe.ingredients  
-            })
-    }
+    
     render () {
         if (this.props.viewRecipe.label === undefined) {
             return (
@@ -23,7 +20,17 @@ class ViewRecipe extends Component {
         } else {
             return (
                 <div className='container' >
-                    {this.props.viewRecipe.label}
+                <Link to='/app'> <button className="btn btn-lg btn-primary" style={{width: 100 + '%'}}>Back</button></Link>
+                    <h1 className='border-bottom'>Title</h1>
+                    <span >{this.props.viewRecipe.label}</span>
+
+                    <h1 className='border-bottom'>Ingredients</h1>
+                    <span >
+                         {this.props.viewRecipe.ingredients.map(item => (
+                            <p key={item.text}>{ item.text }</p>
+                        ))}
+                    </span>
+                   
                 </div>
             )
         }
