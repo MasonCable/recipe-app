@@ -10,6 +10,8 @@ const initialState = {
     userToken: ''
 }
 
+
+
 // Make sure that this gets moved into a seperate file
 const testReducer1 = (state = initialState, action) => {
     switch (action.type) {
@@ -22,7 +24,7 @@ const testReducer1 = (state = initialState, action) => {
             case 'DISH_TYPE':
                 return {...state, dishType: action.payload}
             case 'VIEW_RECIPE':
-                return {...state, viewRecipe: action.payload}
+                return {...state, viewRecipe: action.payload}            
             default:
                 return state
         }
