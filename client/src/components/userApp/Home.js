@@ -101,10 +101,6 @@ class Home extends Component {
                                 </div>
                             </div>
                         ))}
-                    </div>
-                    {/* This section handles the drinks */}
-                    {/* Make sire that this gets turned into a seperate component */}
-                    <div className="container mt-3 d-flex justify-content-center flex-wrap"  >                    
                         {this.state.drinks.map(item => (
                             <div className="box m-2 border-bottom pb-2" style={{textAlign: 'center'}} key={item.idDrink}>
                                 <img src={item.strDrinkThumb} alt={item.strDrink} style={{ width: 16 + 'rem' }} />
@@ -116,6 +112,7 @@ class Home extends Component {
                             </div>
                         ))}
                     </div>
+                    
                 </div>
             )
         }
