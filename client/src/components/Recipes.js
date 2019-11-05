@@ -43,7 +43,9 @@ class Recipes extends Component{
                                 </h5>
                                 <ul className="list-group list-group-flush">
                                     <div className="list-group-item"><strong>Calories</strong>: {Math.round(item.recipe.calories)}</div>
-                                    <div className="list-group-item"><strong>Description</strong>: {item.recipe.dietLabels.join(', ')}</div>
+                                    {/* ADD AN IF STATMENT TO CHECK AND SEE IF THERE IS IN FACT A DESCRIPTION -> CODE IS LISED BELOW */}
+                                    {/* {(item.recipe.dietLabels.length === 0) ? item.recipe.dietLabels.join(', ') : 'No Description'} */}
+                                    <div className="list-group-item"><strong>Description</strong>: {item.recipe.dietLabels.join('  ,')}  </div>                                
                                 </ul>
                             </div>
                         </div>
